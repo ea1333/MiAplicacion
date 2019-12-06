@@ -16,7 +16,7 @@ class ResultsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
-
+        
 
         val linearLayoutManager = LinearLayoutManager(this)
         recycler.layoutManager = linearLayoutManager

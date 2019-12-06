@@ -1,9 +1,12 @@
 package com.example.miaplicacion
 
+import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.miaplicacion.modelo.Article
 import com.squareup.picasso.Picasso
@@ -35,13 +38,22 @@ class ArticlesAdapter: RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
         }*/
 
         holder.itemView.prod1title.text = art.title
-        holder.itemView.prod1price.text = "${art.price}"
+        holder.itemView.prod1price.text = "$${art.price}"
 
         Picasso.get()
             .load(art.thumbnail)
             .into(holder.itemView.prod1image)
+
+
         holder.itemView.setOnClickListener {
 
+            val productId = art.id
+            Log.e("Hola", productId)
+            val intent = Intent(it.context, ProductActivity::class.java)
+
+            intent.putExtra("productid", productId)
+
+            it.context.startActivity(intent)
         }
     }
 }
