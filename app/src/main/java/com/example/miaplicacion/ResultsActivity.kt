@@ -16,7 +16,6 @@ class ResultsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
-        
 
         val linearLayoutManager = LinearLayoutManager(this)
         recycler.layoutManager = linearLayoutManager
@@ -28,16 +27,17 @@ class ResultsActivity : AppCompatActivity() {
 
         API().search(parametro.toString(), object: Callback<SearchResult> {
             override fun onFailure(call: Call<SearchResult>, t: Throwable) {
-
+                resultsError.text = "¡Error!"
             }
             override fun onResponse(call: Call<SearchResult>, response: Response<SearchResult>) {
                 if (response.isSuccessful) {
                     val resultado = response.body()?.results!!
                     adapter.articulos = resultado as ArrayList<Article>
                     adapter.notifyDataSetChanged()
+                } else {
+                    resultsError.text = "¡Error 2!"
                 }
             }
         })
-        //prod1title.text = received[1].title
     }
 }

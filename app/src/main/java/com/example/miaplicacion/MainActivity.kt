@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         btnBuscar.setOnClickListener {
             val ingresado = campoDeBusqueda.text.toString()
-            Log.e("Hola", ingresado)
+            Log.e("Producto a buscar", ingresado)
             val intent = Intent(this, ResultsActivity::class.java)
 
             intent.putExtra("termino", ingresado)

@@ -11,7 +11,6 @@ interface MercadoLibreAPI {
     @GET("items/{itemId}")
     fun getArticle(@Path("itemId") id: String): Call<Article>
 
-
     @GET("sites/MLA/search")
     fun search(@Query("q") query: String): Call<SearchResult>
 }

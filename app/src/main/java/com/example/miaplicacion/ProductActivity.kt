@@ -28,12 +28,12 @@ class ProductActivity : AppCompatActivity() {
 
                 val respPictures = response.body()?.pictures!!
 
-                this@ProductActivity.productTitle.text = resp?.title
-                this@ProductActivity.price.text = "$ ${resp?.price}"
+                productTitle.text = resp?.title
+                productPrice.text = "$${resp?.price}"
 
                 Picasso.get()
                     .load(respPictures[0].url)
-                    .into(this@ProductActivity.image)
+                    .into(productImage)
 
             }
         })
